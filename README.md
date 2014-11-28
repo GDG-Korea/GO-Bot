@@ -1,8 +1,4 @@
-# GO 언어로 Telegram Bot 만들기
-
-GO 언어를 사용하여 Telegram 메신저에서 동작하는 간단한 봇을 만듭니다.
-
-## Docker 설치
+# 환경설정 
 
 텔레그램과 GO 언어 환경 설정을 위해 컨테이너 환경 [Docker](https://www.docker.com/)를 사용합니다. 컨테이너 환경은 경량 가상 머신으로 생각하셔도 무방합니다.
 
@@ -29,6 +25,10 @@ boot2docker init
 boot2docker up
 $(boot2docker shellinit)
 ````
+
+## Docker 이미지 빌드
+
+Docker 이미지 빌드에 관심이 있는 분은 [여기](https://github.com/GDG-Korea/GO-Bot/tree/0-setup/docker)를 참고해주세요.
 
 ## Docker 이미지 내려 받기
 
