@@ -1,64 +1,97 @@
-# 환경설정 
+# 안녕 Telegram CLI, 안녕 GO Lang
 
-텔레그램과 GO 언어 환경 설정을 위해 컨테이너 환경 [Docker](https://www.docker.com/)를 사용합니다. 컨테이너 환경은 경량 가상 머신으로 생각하셔도 무방합니다.
+컨테이너가 제대로 동작하는지 확인해 봅시다.
 
-## 코드랩 리포지토리 다운로드
+# 쉘 스크립트
 
-git에 친숙하면 아래와 같이 커맨드 라인에 입력해주세요.
-
-````
-git clone https://github.com/GDG-Korea/GO-Bot.git
-cd GO-Bot
-````
-
-친숙하지 않다면 [ZIP 다운로드](https://github.com/GDG-Korea/GO-Bot/archive/0-setup.zip)를 이용하셔도 됩니다.
-
-## 우분투 환경
+매번 docker run을 입력하기 귀찮기 때문에 아래와 같이 쉘 스크립트를 만듭니다.
 
 ````
-sudo apt-get update
-sudo apt-get install docker.io
+cat > run.sh
+#!/bin/bash
+docker run --rm -it -v /Users/lameduck/project/GO-Bot/app:/app gobot
+[CTRL + D]
+
+chmod +x run.sh
 ````
 
-## Boot2Docker 설정 (맥, 윈도우즈 사용자만)
+이제 부터는 `./run.sh`로 들어갈 수 있습니다.
 
-윈도우즈 환경과 맥 환경은 [Boot2Docker](https://github.com/boot2docker/boot2docker)를 이용하여야 합니다. Docker가 리눅스 환경 위에서만 동작하는 경량 환경이기 때문에 Boot2Docker는 리눅스 가상 머신 위에 Docker 환경을 설정해줍니다. [윈도우](https://docs.docker.com/installation/windows/)와 [맥](https://docs.docker.com/installation/mac/) 사용자는 링크를 읽고 Boot2Docker를 설치하십시오.
 
-### 초기화
+# Hello Go Bot
 
-````
-boot2docker init
-````
-
-### 작동
+아래의 파일을 로컬의 app 디렉토리에 `hello.go`로 저장합니다.
 
 ````
-boot2docker up
-$(boot2docker shellinit)
+package main
+
+import "fmt"
+
+func main() {
+	    fmt.Println("Hello, Go Bot")
+}
 ````
 
-## Docker 이미지 빌드
+## GO 프로그램 실행
 
-Docker 이미지 빌드에 관심이 있는 분은 [여기](https://github.com/GDG-Korea/GO-Bot/tree/0-setup/docker)를 참고해주세요.
-
-## Docker 이미지 내려 받기
+컨테이너에서 다음과 같이 입력합니다.
 
 ````
-docker pull dalinaum/gobot
+cd /app
+go run hello.go
 ````
 
-네트워크 상황 때문에 받기 어려운 경우도 있습니다. 그럴 경우에는 tar 파일을 이용해주십시요.
+## GO 바이너리 빌드
+
+실행 파일을 만들기 위해서는 다음과 같이 입력합니다.
 
 ````
-docker load --input gobot.tar
+go build hello.go
 ````
 
-## Docker 이미지 수행하기
+# 텔레그램 CLI
 
 ````
-docker run --rm -it -v `pwd`/app:/app dalinaum/gobot
+cd /tg
+bin/telegram-cli
 ````
 
-이미지를 수행하는 명령인데 수행이 끝난 후 인스턴스를 삭제하고(`--rm`) 대화형이며(`-i`) 터미널을 사용하며(`-t`) 현재 디렉토리의 서브 디렉토리 app을 컨테이너의 `/app`디렉토리에 매핑하겠다는 것입니다. 사용하는 이미지는 `dalinaum/gobot`이고요.
+최초 수행시에 패스 워드 인증이 나옵니다. 다음과 같이 진행합니다.
 
-만약 직접 이미지를 빌드한 경우에는 `dalinaum/gobot`이 아닌 `gobot`등으로 수행해야 합니다. 빌드 때 사용했던 `-t` 옵션을 참고해주세요.
+````
+# bin/telegram-cli 
+change_user_group: can't find the user telegramd to switch to
+Telegram-cli version 1.1.1, Copyright (C) 2013-2014 Vitaly Valtman
+Telegram-cli comes with ABSOLUTELY NO WARRANTY; for details type `show_license'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show_license' for details.
+I: config dir=[/root/.telegram-cli]
+Telephone number (with '+' sign): +82103097####
+Code from sms (if you did not receive an SMS and want to be called, type "call"): 24876
+User L Kim offline (was online [2014/11/28 22:49:03])
+User L Kim online
+> 
+````
+
+사용자 이름 사이의 공백은 _으로 처리되는 것을 볼 수 있습니다. 이름이 영어이면 user_info로 질의할 수 있습니다. (한글인 경우 아직 쉘 설정이 문제가 있네요.)
+
+````
+> user_info L_KIM
+> user_info L_Kim
+User L Kim updated name
+User L Kim (#73270521):
+	real name: L Kim
+	phone: 82103097####
+	online
+````
+
+user_info에 넣었던 L_Kim으로도 메시지를 보낼 수 있고 #넘버 앞에 user를 붙여서도 메시지를 보낼 수 있는 것을 볼 수 있습니다.
+
+````
+> msg L_Kim hello telegram
+[23:32]  L Kim <<< hello telegram
+> msg user#73270521 Nice to meet you
+[23:33]  L Kim <<< Nice to meet you
+````
+
+우리는 이 특성을 이용할 것입니다.
