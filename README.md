@@ -2,7 +2,18 @@
 
 텔레그램과 GO 언어 환경 설정을 위해 컨테이너 환경 [Docker](https://www.docker.com/)를 사용합니다. 컨테이너 환경은 경량 가상 머신으로 생각하셔도 무방합니다.
 
-### 우분투 환경
+## 코드랩 리포지토리 다운로드
+
+git에 친숙하면 아래와 같이 커맨드 라인에 입력해주세요.
+
+````
+git clone https://github.com/GDG-Korea/GO-Bot.git
+cd GO-Bot
+````
+
+친숙하지 않다면 [ZIP 다운로드](https://github.com/GDG-Korea/GO-Bot/archive/0-setup.zip)를 이용하셔도 됩니다.
+
+## 우분투 환경
 
 ````
 sudo apt-get update
