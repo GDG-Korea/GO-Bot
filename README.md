@@ -41,3 +41,11 @@ docker pull dalinaum/gobot
 ````
 docker load --input gobot.tar
 ````
+
+## Docker 이미지 수행하기
+
+````
+docker run -it dalinaum/gobot
+````
+
+만약 직접 이미지를 빌드한 경우에는 `dalinaum/gobot`이 아닌 `gobot`등으로 수행해야 합니다. 빌드 때 사용했던 `-t` 옵션을 참고해주세요.
