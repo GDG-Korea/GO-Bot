@@ -9,5 +9,5 @@ RUN git clone --recursive https://github.com/vysheng/tg.git
 WORKDIR /tg
 RUN ./configure
 RUN make
-#ADD public/ /var/www
+VOLUME /app
 CMD bash

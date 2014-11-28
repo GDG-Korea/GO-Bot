@@ -56,7 +56,9 @@ docker load --input gobot.tar
 ## Docker 이미지 수행하기
 
 ````
-docker run --rm -it dalinaum/gobot
+docker run --rm -it -v `pwd`/app:/app dalinaum/gobot
 ````
+
+이미지를 수행하는 명령인데 수행이 끝난 후 인스턴스를 삭제하고(`--rm`) 대화형이며(`-i`) 터미널을 사용하며(`-t`) 현재 디렉토리의 서브 디렉토리 app을 컨테이너의 `/app`디렉토리에 매핑하겠다는 것입니다. 사용하는 이미지는 `dalinaum/gobot`이고요.
 
 만약 직접 이미지를 빌드한 경우에는 `dalinaum/gobot`이 아닌 `gobot`등으로 수행해야 합니다. 빌드 때 사용했던 `-t` 옵션을 참고해주세요.
