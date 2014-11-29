@@ -47,7 +47,9 @@ Docker 이미지 빌드에 관심이 있는 분은 [여기](https://github.com/G
 docker pull dalinaum/gobot
 ````
 
-네트워크 상황 때문에 받기 어려운 경우도 있습니다. 그럴 경우에는 tar 파일을 이용해주십시요.
+### tar 파일에서 로드하기
+
+네트워크 상황 때문에 받기 어려운 경우도 있습니다. 그럴 경우에는 [tar 파일](https://drive.google.com/file/d/0B0ucmHKqyC8_LWlsVVJ6Q1FFUms/view?usp=sharing)을 이용해주십시요.
 
 ````
 docker load --input gobot.tar
@@ -57,8 +59,13 @@ docker load --input gobot.tar
 
 ````
 docker run --rm -it -v `pwd`/app:/app dalinaum/gobot
+://drive.google.com/file/d/0B0ucmHKqyC8_LWlsVVJ6Q1FFUms/view?usp=sharing=====
 ````
 
 이미지를 수행하는 명령인데 수행이 끝난 후 인스턴스를 삭제하고(`--rm`) 대화형이며(`-i`) 터미널을 사용하며(`-t`) 현재 디렉토리의 서브 디렉토리 app을 컨테이너의 `/app`디렉토리에 매핑하겠다는 것입니다. 사용하는 이미지는 `dalinaum/gobot`이고요.
 
 만약 직접 이미지를 빌드한 경우에는 `dalinaum/gobot`이 아닌 `gobot`등으로 수행해야 합니다. 빌드 때 사용했던 `-t` 옵션을 참고해주세요.
+
+## 다음으로
+
+[처음 만나는 텔레그램 CLI와 GO](https://github.com/GDG-Korea/GO-Bot/tree/1-hello)
