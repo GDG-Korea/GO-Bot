@@ -1,4 +1,4 @@
-# pic 커맨드를 입력할 때 출력해봅시다.
+# 대화해보아요
 
 ````
 function on_msg_receive(msg)
@@ -28,3 +28,8 @@ end
 ````
 
 pic이란 커맨드를 인식합니다.
+
+
+## 다음
+
+[마무리](https://github.com/GDG-Korea/GO-Bot/tree/5-end)
