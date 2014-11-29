@@ -60,8 +60,8 @@ docker load --input gobot.tar
 ## Docker 이미지 수행하기
 
 ````
+mkdir app
 docker run --rm -it -v `pwd`/app:/app dalinaum/gobot
-://drive.google.com/file/d/0B0ucmHKqyC8_LWlsVVJ6Q1FFUms/view?usp=sharing=====
 ````
 
 이미지를 수행하는 명령인데 수행이 끝난 후 인스턴스를 삭제하고(`--rm`) 대화형이며(`-i`) 터미널을 사용하며(`-t`) 현재 디렉토리의 서브 디렉토리 app을 컨테이너의 `/app`디렉토리에 매핑하겠다는 것입니다. 사용하는 이미지는 `dalinaum/gobot`이고요.
