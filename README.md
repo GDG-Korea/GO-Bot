@@ -1,4 +1,4 @@
-# 이미지를 전송해봅시다.
+# 이미지도 보냅니다
 
 전송 메시지만 바꾸면 가능합니다.
 
@@ -31,3 +31,7 @@ set_profile_photo <photo-file-name> - sets userpic. Photo should be square, or s
 
 `app` 디렉토리에 `gonuts.png`파일이 있습니다.
 ![짱 귀여운 이미지](https://github.com/GDG-Korea/GO-Bot/blob/3-img/app/gonuts.png)
+
+## 다음
+
+[대화해보아요](https://github.com/GDG-Korea/GO-Bot/tree/4-interactive)
