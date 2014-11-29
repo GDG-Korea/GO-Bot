@@ -30,3 +30,4 @@ set_profile_photo <photo-file-name> - sets userpic. Photo should be square, or s
 ## 이미지 예제
 
 `app` 디렉토리에 `gonuts.png`파일이 있습니다.
+![짱 귀여운 이미지](https://github.com/GDG-Korea/GO-Bot/blob/3-img/app/gonuts.png)
