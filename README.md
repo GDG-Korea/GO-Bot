@@ -95,3 +95,7 @@ user_info에 넣었던 L_Kim으로도 메시지를 보낼 수 있고 #넘버 앞
 ````
 
 우리는 이 특성을 이용할 것입니다.
+
+## 다음
+
+[전송합니다.](https://github.com/GDG-Korea/GO-Bot/tree/2-send)
