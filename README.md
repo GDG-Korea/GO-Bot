@@ -1,4 +1,4 @@
-# 전송하기
+# 전송합시다
 
 ## GO 언에 수준 메시지 전송
 
@@ -71,3 +71,6 @@ func main() {
         subProcess.Wait()
 }
 ````
+
+## 다음
+[이미지도 보냅니다](https://github.com/GDG-Korea/GO-Bot/tree/3-img)
