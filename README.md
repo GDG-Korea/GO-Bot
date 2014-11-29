@@ -9,4 +9,8 @@ IRC 봇인 [안드냥](https://github.com/GDG-Korea/Andnyang)도 참고해주세
 * [투어](http://go-tour-kr.appspot.com/#1)를 해봅니다.
 * [GDG Korea Golang](http://plus.google.com/112714242728066184635)이 기다리고 있습니다.
 
+## 텔레그램 CLI을 더 알고 싶습니다.
+
+* [텔레그램(Telegram)으로 서버 모니터링하기](http://coffeenix.net/board_view.php?bd_code=1760)
+
 감사합니다.
